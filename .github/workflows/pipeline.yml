@@ -32,6 +32,8 @@ jobs:
       - name: Verificar archivos generados
         run: ls -R build
 
+      - name: Mostrar carpetas
+        run: ls
       - name: Subir archivos para GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
