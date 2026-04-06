@@ -22,27 +22,13 @@ export const load: PageLoad = async ({ fetch, url }) => {
 	const filters = readFilters(url);
 	const query = filters.name ?? '';
 
-	try {
-		const result = await listCharacters(fetch, filters);
+	const result = await listCharacters(fetch, filters);
 
-		return {
-			characters: result.characters,
-			total: result.total,
-			pagination: result.pagination,
-			filters: result.filters,
-			query
-		};
-	} catch (error) {
-		return {
-			characters: [],
-			total: 0,
-			pagination: undefined,
-			filters,
-			query,
-			error:
-				error instanceof Error
-					? error.message
-					: 'No se pudo cargar la API de Rick and Morty.'
-		};
-	}
+	return {
+		characters: result.characters,
+		total: result.total,
+		pagination: result.pagination,
+		filters: result.filters,
+		query
+	};
 };
