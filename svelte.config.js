@@ -1,19 +1,10 @@
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: vitePreprocess(),
-
-	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build'
-		}),
-		prerender: {
-			handleHttpError: 'ignore'
-		}
-	}
+export default {
+  kit: {
+    adapter: adapter(),
+    paths: {
+      base: '/prueba-actividad-2'
+    }
+  }
 };
-
-export default config;
