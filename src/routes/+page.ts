@@ -2,6 +2,7 @@ import type { PageLoad } from './$types';
 import { listCharacters, type CharacterFilters } from '$lib/core/api/rick-and-morty';
 
 export const prerender = true;
+export const ssr = false;
 
 function readFilters(url: URL): CharacterFilters {
 	const query = url.searchParams.get('q') ?? url.searchParams.get('name') ?? '';
