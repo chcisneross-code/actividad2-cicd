@@ -29,10 +29,13 @@ jobs:
       - name: Construir proyecto
         run: npm run build
 
+      - name: Verificar archivos generados
+        run: ls -R build
+
       - name: Subir archivos para GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./build
 
   deploy:
     needs: build
